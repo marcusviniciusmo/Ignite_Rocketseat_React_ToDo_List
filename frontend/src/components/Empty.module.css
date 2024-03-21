@@ -1,0 +1,14 @@
+.content {
+  border-top: 1px solid var(--borderTasks-color);
+  color: var(--textEmptyTasks-color);
+  font-size: 1.6rem;
+  line-height: 1.4;
+  width: var(--tasks-width);
+  height: 24.4rem;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}

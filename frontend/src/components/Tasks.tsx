@@ -1,4 +1,4 @@
-import EmptyIcon from '../assets/clipboard.svg';
+import { Empty } from './Empty';
 import styles from './Tasks.module.css';
 
 export function Tasks() {
@@ -15,13 +15,7 @@ export function Tasks() {
         </div>
       </div>
 
-      <div className={styles.content}>
-        <img src={EmptyIcon} alt="Clipboard" />
-        <div>
-          <span>Você ainda não tem tarefas cadastradas</span><br/>
-          <span>Crie tarefas e organize seus itens a fazer</span>
-        </div>
-      </div>
+      <Empty />
     </div>
   )
 };
