@@ -1,12 +1,15 @@
 import { Header } from "./components/Header";
 import { NewTask } from "./components/NewTask";
+import { Tasks } from "./components/Tasks";
 
 export function App() {
   return (
-    <>
+    <main>
       <Header />
+
       <NewTask />
-      <h1>ToDo List</h1>
-    </>
+      
+      <Tasks />
+    </main>
   )
 };
