@@ -9,7 +9,6 @@ interface NewTaskProps {
 };
 
 export function NewTask({ tasks, setTasks }: NewTaskProps) {
-  // const [tasks, setTasks] = useState<string[]>([]);
   const [newTask, setNewTask] = useState<string>('');
 
   const handleNewTask = () => {
