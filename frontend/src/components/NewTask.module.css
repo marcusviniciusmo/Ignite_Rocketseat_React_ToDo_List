@@ -1,0 +1,48 @@
+.newTask {
+  width: var(--newTask-width);
+  height: var(--newTask-height);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: absolute;
+  top: calc(var(--header-height) - (var(--newTask-height) / 2));
+  left: calc((100vw - var(--newTask-width)) / 2);
+}
+
+.newTaskInput {
+  background: var(--input-background);
+  color: var(--inputText-color);
+  width: 63.8rem;
+  height: 5.4rem;
+  padding: 1.6rem;
+  border: none;
+  border-radius: 0.8rem;
+}
+
+.newTaskInput::placeholder {
+  font-size: 1.6rem;
+}
+
+.newTaskButton {
+  background: var(--newTaskButton-background);
+  color: var(--newTaskButtonLabel-color);
+  width: 9rem;
+  height: 5.2rem;
+  border: none;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+.newTaskButton:hover {
+  background: var(--primary-color);
+  transition: 0.3s;
+}
+
+.newTaskButtonLabel {
+  
+  font-size: 1.4rem;
+}
