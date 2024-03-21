@@ -27,6 +27,7 @@ export function NewTask({ tasks, setTasks }: NewTaskProps) {
         type="text"
         className={styles.newTaskInput}
         placeholder='Adicione uma nova tarefa'
+        maxLength={100}
         value={newTask}
         onChange={e => setNewTask(e.target.value)}
       />

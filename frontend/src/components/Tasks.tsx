@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { NewTask } from './NewTask';
 import { Empty } from './Empty';
 import styles from './Tasks.module.css';
+import { Task } from './Task';
 
 export interface Task {
   id: number;
@@ -49,7 +50,12 @@ export function Tasks() {
           {
             tasks.length > 0
               ? tasks.map(task => {
-                return <div key={task.id}>{task.description}</div>
+                return (
+                  <Task
+                    key={task.id}
+                    taskDescription={task.description}
+                  />
+                )
               })
               : <Empty />
           }
