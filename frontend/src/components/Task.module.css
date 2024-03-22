@@ -18,11 +18,29 @@
 }
 
 .task:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
-.check {
+.checkTask {
+  color: var(--primary-color);
+  width: 1.8rem;
+  height: 1.8rem;
   cursor: pointer;
+}
+
+.checkTask:hover {
+  color: var(--primary-color-variation);
+}
+
+.checkedTask {
+  color: var(--secondary-color);
+  width: 1.8rem;
+  height: 1.8rem;
+  cursor: pointer;
+}
+
+.checkedTask:hover {
+  color: var(--secondary-color-variation);
 }
 
 .taskDescription {
@@ -37,5 +55,11 @@
 }
 
 .trash {
+  width: 1.8rem;
+  height: 1.8rem;
   cursor: pointer;
+}
+
+.trash:hover {
+  color: var(--danger-color);
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AddCircleOutlineOutlined } from '@mui/icons-material';
+import { PlusCircle } from 'phosphor-react';
 import { Task } from './Tasks';
 import styles from './NewTask.module.css';
 
@@ -33,7 +33,7 @@ export function NewTask({ tasks, setTasks }: NewTaskProps) {
       />
       <button className={styles.newTaskButton} onClick={handleNewTask}>
         <span className={styles.newTaskButtonLabel}>Criar</span>
-        <AddCircleOutlineOutlined />
+        <PlusCircle />
       </button>
     </div>
   )

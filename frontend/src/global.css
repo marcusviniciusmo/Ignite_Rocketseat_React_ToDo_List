@@ -1,5 +1,6 @@
 :root {
   --primary-color: #4EA8DE;
+  --primary-color-variation: #1E6F9F;
   --secondary-color: #5E60CE;
   --secondary-color-variation: #8284FA;
 
@@ -17,6 +18,7 @@
   --textEmptyTasks-color: #808080;
   --taskText-color: #F2F2F2;
   --doneTask-color: #808080;
+  --danger-color: #E25858;
 
   --header-height: 20rem;
   --newTask-height: 5.4rem;

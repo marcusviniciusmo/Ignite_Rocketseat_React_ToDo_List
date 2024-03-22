@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import Unchecked from '../assets/unchecked.svg';
-import Checked from '../assets/checked.svg';
-import Trash from '../assets/trash.svg';
+import { Circle, CheckCircle, Trash } from 'phosphor-react';
 import styles from './Task.module.css';
 
 interface TaskProps {
@@ -28,21 +26,25 @@ export function Task({ task, onChangeStatusTask, onDeleteTask }: TaskProps) {
 
   return (
     <div className={styles.task}>
-      <img
-        className={styles.check}
-        src={doneTask ? Checked : Unchecked}
+      <div
         title='Marcar/Desmarcar tarefa como feita'
         onClick={toggleCheckTask}
-      />
+      >
+        {
+          doneTask
+            ? <CheckCircle className={styles.checkedTask} weight="fill" />
+            : <Circle className={styles.checkTask} />
+        }
+      </div>
       <div className={styles.taskDescription}>
         <span className={doneTask ? styles.doneTask : ''}>{task.description}</span>
       </div>
-      <img
-        className={styles.trash}
-        src={Trash}
+      <div
         title='Remover tarefa'
         onClick={handleTaskToDelete}
-      />
+      >
+        <Trash className={styles.trash} />
+      </div>
     </div>
   )
 };
