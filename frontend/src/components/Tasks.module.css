@@ -34,10 +34,12 @@
   background: var(--counterTasks-background);
   color: var(--counterTasks-color);
   font-size: 1.2rem;
-  width: 2.5rem;
+  min-width: 2.5rem;
+  max-width: 7rem;
   height: 1.9rem;
+  padding: 0.2rem 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 999rem;
 }

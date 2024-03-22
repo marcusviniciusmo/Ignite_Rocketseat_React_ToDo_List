@@ -1,21 +1,36 @@
-import Check from '../assets/check.svg';
+import { useState } from 'react';
+import Unchecked from '../assets/unchecked.svg';
+import Checked from '../assets/checked.svg';
 import Trash from '../assets/trash.svg';
 import styles from './Task.module.css';
 
 interface TaskProps {
-  taskDescription: string;
+  task: {
+    id: number;
+    description: string;
+    status: 'created' | 'done' | 'deleted';
+  };
+  onChangeStatusTask: Function;
 };
 
-export function Task({ taskDescription }: TaskProps) {
+export function Task({ task, onChangeStatusTask }: TaskProps) {
+  const [doneTask, setDoneTask] = useState<boolean>(false);
+
+  const toggleCheckTask = () => {
+    setDoneTask(!doneTask);
+    onChangeStatusTask(task);
+  };
+
   return (
     <div className={styles.task}>
       <img
         className={styles.check}
-        src={Check}
+        src={doneTask ? Checked : Unchecked}
         title='Marcar/Desmarcar tarefa como feita'
+        onClick={toggleCheckTask}
       />
       <div className={styles.taskDescription}>
-        <span>{taskDescription}</span>
+        <span className={doneTask ? styles.doneTask : ''}>{task.description}</span>
       </div>
       <img
         className={styles.trash}

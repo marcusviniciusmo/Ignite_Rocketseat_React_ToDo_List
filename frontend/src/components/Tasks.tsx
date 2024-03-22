@@ -30,6 +30,19 @@ export function Tasks() {
     setDoneTasks(doneTasks);
   };
 
+  const handleStatusDoneTask = (task: Task) => {
+    const indexTaskToChange = tasks.findIndex(t => t.id === task.id);
+    const statusToChange = task.status;
+
+    const updatedTasks = [...tasks];
+    updatedTasks[indexTaskToChange] = {
+      ...updatedTasks[indexTaskToChange],
+      status: statusToChange === 'created' ? 'done' : 'created'
+    };
+
+    setTasks(updatedTasks);
+  };
+
   return (
     <div>
       <NewTask tasks={tasks} setTasks={setTasks} />
@@ -42,7 +55,11 @@ export function Tasks() {
           </div>
           <div className={styles.done}>
             <label>Concluídas</label>
-            <span className={styles.counter}>{doneTasks}</span>
+            {
+              doneTasks > 0
+              ? <span className={styles.counter}>{doneTasks} de {createdTask}</span>
+              : <span className={styles.counter}>{doneTasks}</span>
+            }
           </div>
         </div>
 
@@ -53,7 +70,8 @@ export function Tasks() {
                 return (
                   <Task
                     key={task.id}
-                    taskDescription={task.description}
+                    task={task}
+                    onChangeStatusTask={handleStatusDoneTask}
                   />
                 )
               })
