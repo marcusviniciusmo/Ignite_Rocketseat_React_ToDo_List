@@ -1,17 +1,12 @@
 import { useEffect, useState } from 'react';
 import { NewTask } from './NewTask';
 import { Empty } from './Empty';
-import styles from './Tasks.module.css';
 import { Task } from './Task';
-
-export interface Task {
-  id: number;
-  description: string;
-  status: 'created' | 'done' | 'deleted';
-};
+import { Task as TaskType} from '../types/Task';
+import styles from './Tasks.module.css';
 
 export function Tasks() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<TaskType[]>([]);
   const [createdTask, setCreatedTask] = useState<number>(0);
   const [doneTasks, setDoneTasks] = useState<number>(0);
 
@@ -30,7 +25,7 @@ export function Tasks() {
     setDoneTasks(doneTasks);
   };
 
-  const handleStatusDoneTask = (task: Task) => {
+  const handleStatusDoneTask = (task: TaskType) => {
     const indexTaskToChange = tasks.findIndex(t => t.id === task.id);
     const statusToChange = task.status;
 
@@ -43,7 +38,7 @@ export function Tasks() {
     setTasks(updatedTasks);
   };
 
-  const handleTaskToDelete = (task: Task) => {
+  const handleTaskToDelete = (task: TaskType) => {
     const indexTaskToDelete = tasks.findIndex(t => t.id === task.id);
 
     const allTasks = [...tasks];
@@ -55,7 +50,7 @@ export function Tasks() {
     setTasks(allTasks);
   };
 
-  const handleCustomSort = (a: Task, b: Task) => {
+  const handleCustomSort = (a: TaskType, b: TaskType) => {
     if (a.status === 'created' && b.status !== 'created') {
       return -1;
     };

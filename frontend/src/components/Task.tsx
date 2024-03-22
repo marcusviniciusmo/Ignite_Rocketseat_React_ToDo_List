@@ -1,16 +1,7 @@
 import { useState } from 'react';
 import { Circle, CheckCircle, Trash } from 'phosphor-react';
+import { TaskProps } from '../types/Task';
 import styles from './Task.module.css';
-
-interface TaskProps {
-  task: {
-    id: number;
-    description: string;
-    status: 'created' | 'done' | 'deleted';
-  };
-  onChangeStatusTask: Function;
-  onDeleteTask: Function;
-};
 
 export function Task({ task, onChangeStatusTask, onDeleteTask }: TaskProps) {
   const [doneTask, setDoneTask] = useState<boolean>(false);

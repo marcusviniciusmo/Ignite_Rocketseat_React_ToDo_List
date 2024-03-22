@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import { PlusCircle } from 'phosphor-react';
-import { Task } from './Tasks';
+import { NewTaskProps } from '../types/NewTask';
 import styles from './NewTask.module.css';
-
-interface NewTaskProps {
-  tasks: Task[];
-  setTasks: Function;
-};
 
 export function NewTask({ tasks, setTasks }: NewTaskProps) {
   const [newTask, setNewTask] = useState<string>('');
@@ -19,7 +14,6 @@ export function NewTask({ tasks, setTasks }: NewTaskProps) {
     }]);
     setNewTask('');
   };
-
 
   return (
     <div className={styles.newTask}>
