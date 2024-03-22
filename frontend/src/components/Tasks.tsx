@@ -43,6 +43,18 @@ export function Tasks() {
     setTasks(updatedTasks);
   };
 
+  const handleTaskToDelete = (task: Task) => {
+    const indexTaskToDelete = tasks.findIndex(t => t.id === task.id);
+
+    const allTasks = [...tasks];
+    allTasks[indexTaskToDelete] = {
+      ...allTasks[indexTaskToDelete],
+      status: 'deleted'
+    };
+
+    setTasks(allTasks);
+  };
+
   const handleCustomSort = (a: Task, b: Task) => {
     if (a.status === 'created' && b.status !== 'created') {
       return -1;
@@ -90,6 +102,7 @@ export function Tasks() {
                     key={task.id}
                     task={task}
                     onChangeStatusTask={handleStatusDoneTask}
+                    onDeleteTask={handleTaskToDelete}
                   />
                 )
               })

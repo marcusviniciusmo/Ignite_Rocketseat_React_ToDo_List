@@ -11,14 +11,19 @@ interface TaskProps {
     status: 'created' | 'done' | 'deleted';
   };
   onChangeStatusTask: Function;
+  onDeleteTask: Function;
 };
 
-export function Task({ task, onChangeStatusTask }: TaskProps) {
+export function Task({ task, onChangeStatusTask, onDeleteTask }: TaskProps) {
   const [doneTask, setDoneTask] = useState<boolean>(false);
 
   const toggleCheckTask = () => {
     setDoneTask(!doneTask);
     onChangeStatusTask(task);
+  };
+
+  const handleTaskToDelete = () => {
+    onDeleteTask(task);
   };
 
   return (
@@ -36,6 +41,7 @@ export function Task({ task, onChangeStatusTask }: TaskProps) {
         className={styles.trash}
         src={Trash}
         title='Remover tarefa'
+        onClick={handleTaskToDelete}
       />
     </div>
   )
