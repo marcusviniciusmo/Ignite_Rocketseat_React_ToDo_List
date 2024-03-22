@@ -43,6 +43,24 @@ export function Tasks() {
     setTasks(updatedTasks);
   };
 
+  const handleCustomSort = (a: Task, b: Task) => {
+    if (a.status === 'created' && b.status !== 'created') {
+      return -1;
+    };
+    if (a.status !== 'created' && b.status === 'created') {
+      return 1;
+    };
+    if (a.status === 'done' && b.status !== 'done') {
+      return -1;
+    };
+    if (a.status !== 'done' && b.status === 'done') {
+      return 1;
+    };
+    return a.id - b.id
+  };
+
+  const sortedTasks = tasks.filter(t => t.status !== 'deleted').sort(handleCustomSort);
+
   return (
     <div>
       <NewTask tasks={tasks} setTasks={setTasks} />
@@ -57,16 +75,16 @@ export function Tasks() {
             <label>Concluídas</label>
             {
               doneTasks > 0
-              ? <span className={styles.counter}>{doneTasks} de {createdTask}</span>
-              : <span className={styles.counter}>{doneTasks}</span>
+                ? <span className={styles.counter}>{doneTasks} de {createdTask}</span>
+                : <span className={styles.counter}>{doneTasks}</span>
             }
           </div>
         </div>
 
         <>
           {
-            tasks.length > 0
-              ? tasks.map(task => {
+            sortedTasks.length > 0
+              ? sortedTasks.map(task => {
                 return (
                   <Task
                     key={task.id}
